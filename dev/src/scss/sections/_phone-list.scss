@@ -1,0 +1,31 @@
+@use "@/scss/tools" as *;
+
+.phones-list {
+	@include reset;
+	list-style-type: none;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	gap: 20px;
+
+	&__item {
+		display: flex;
+		align-items: center;
+	}
+
+	&__link-icon {
+		transition: all 0.3s;
+
+		@include hover {
+			opacity: 0.7;
+		}
+	}
+	&__link {
+		display: inline-flex;
+		text-decoration: none;
+		color: inherit;
+		&:not(:first-child) {
+			margin-left: 6px;
+		}
+	}
+}

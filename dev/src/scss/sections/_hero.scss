@@ -1,0 +1,106 @@
+@use "@/scss/tools" as *;
+
+.hero {
+	box-shadow: 0 4px 4px 0 var(--color-white);
+	background-image: linear-gradient(170deg, #fff 32.71%, #88c9f9 74.16%);
+	padding-top: 40px;
+	padding-bottom: adapt(56, 40);
+
+	.home & {
+		margin-bottom: var(--section-padding);
+	}
+
+	&__container {
+	}
+}
+
+.hero-swiper {
+	&__wrapper {
+	}
+
+	&__pagination {
+		margin-top: adapt(80, 24, $tablet);
+		gap: 20px;
+		--swiper-pagination-bullet-height: 12px;
+		--swiper-pagination-bullet-width: 12px;
+	}
+}
+
+.hero-slide {
+	&:not(.swiper-slide-active) {
+		opacity: 0 !important;
+	}
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+		justify-content: space-between;
+
+		@include media($mobile) {
+			flex-direction: column;
+			justify-content: center;
+		}
+	}
+
+	&__content {
+		flex: 0 1 48%;
+		display: flex;
+		flex-direction: column;
+		gap: adapt(40, 24);
+
+		@include media($mobile) {
+			flex: auto;
+			align-items: center;
+			text-align: center;
+		}
+	}
+
+	&__title {
+	}
+
+	&__descr-box {
+	}
+
+	&__btn-box {
+		display: flex;
+		gap: adapt(24, 12);
+		align-items: center;
+		flex-wrap: wrap;
+		@include media($mobile) {
+			width: 100%;
+			justify-content: center;
+		}
+	}
+
+	&__btn {
+	}
+	&__link {
+		font-weight: 600;
+		font-size: 1rem;
+	}
+
+	&__image {
+		flex: 0 1 40%;
+		height: adapt(500, 200);
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		position: relative;
+
+		@include media($mobile) {
+			width: 100%;
+			flex: auto;
+		}
+
+		img {
+			//width: 100%;
+			//height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+}

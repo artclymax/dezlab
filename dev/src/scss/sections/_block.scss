@@ -1,0 +1,24 @@
+@use "@/scss/tools" as *;
+
+.block {
+	background: var(--color-accent);
+	padding-block: calc(var(--section-padding) * 2);
+	text-align: center;
+	color: var(--color-white);
+
+	&__container {
+	}
+
+	&__title {
+	}
+
+	&__descr-box {
+		max-width: 1100px;
+		margin: 0 auto;
+		a {
+			@include hover {
+				color: var(--color-bd);
+			}
+		}
+	}
+}

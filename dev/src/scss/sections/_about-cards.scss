@@ -1,0 +1,91 @@
+@use "@/scss/tools" as *;
+
+.about-cards {
+	&__container {
+		position: relative;
+	}
+}
+
+.about-cards-swiper {
+	position: relative;
+	&__wrapper {
+	}
+
+	&__pagination {
+		gap: 20px;
+		--swiper-pagination-bullet-height: 12px;
+		--swiper-pagination-bullet-width: 12px;
+
+		margin-top: adapt(40, 12);
+	}
+
+	&__navigation {
+		@include media($mobile) {
+			margin-top: adapt(40, 12);
+			display: flex;
+			justify-content: center;
+		}
+	}
+
+	&__next {
+	}
+}
+
+.about-card-slide {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+	&__wrapper {
+		background: var(--gradient);
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		padding: adapt(40, 12) adapt(40, 22);
+		border-radius: 20px;
+		gap: adapt(20, 12);
+		min-height: 200px;
+		@include media($mobile) {
+			min-height: 100%;
+		}
+	}
+
+	&__icon {
+		@include square(adapt(75, 40));
+	}
+
+	&__title {
+	}
+
+	&__descr-box {
+		flex-grow: 1;
+	}
+}
+
+.about-cards-swiper-btn {
+	&__prev,
+	&__next {
+		position: absolute;
+		top: 40%;
+		color: var(--color-dark);
+		z-index: 2;
+
+		@include hover {
+			color: var(--color-accent-dark);
+		}
+
+		@include media($mobile) {
+			position: static;
+		}
+	}
+
+	&__prev {
+		transform: translateX(-20%);
+		left: 0;
+	}
+
+	&__next {
+		transform: translateX(20%);
+		right: 0;
+	}
+}

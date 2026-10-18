@@ -1,0 +1,36 @@
+@use "@/scss/tools" as *;
+
+.breadcrumbs,
+.woocommerce-breadcrumb {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	color: var(--color-gray);
+
+	& > span {
+		display: flex;
+		gap: 6px;
+
+		&:not(:last-child) {
+			&::after {
+				content: "/";
+			}
+		}
+
+		a {
+			display: inline-flex;
+			color: inherit;
+			text-decoration: none;
+			transition: all 0.3s;
+
+			@include hover {
+				color: var(--color-dark);
+			}
+		}
+	}
+
+	.current-item,
+	span:last-of-type {
+
+	}
+}

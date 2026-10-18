@@ -1,0 +1,22 @@
+@use "@/scss/tools" as *;
+
+.hero-page {
+	background-image: var(--gradient);
+	&__container {
+	}
+	.woocommerce-breadcrumb {
+		&:not(:last-child) {
+			margin-bottom: 40px;
+		}
+	}
+	&__title {
+		text-align: center;
+		&:not(:last-child) {
+			margin-bottom: adapt(40, 12);
+		}
+	}
+
+	&__descr {
+		text-align: center;
+	}
+}

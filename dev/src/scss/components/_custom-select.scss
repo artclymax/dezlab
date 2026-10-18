@@ -1,0 +1,68 @@
+@use "@/scss/tools" as *;
+
+.custom-select {
+	position: relative;
+	&__list {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		height: 100px;
+		width: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
+		position: absolute;
+		z-index: 5;
+		top: 100%;
+		left: 0;
+		background: var(--color-white);
+		border: 1px solid var(--color-gray-5);
+		border-radius: 6px;
+		transform: translateY(-30px);
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition: all 0.3s;
+
+		.custom-select-active & {
+			transform: translateY(0);
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+		&.list--up {
+			top: 0;
+			transform: translateY(-100%);
+			//bottom: 100%;
+		}
+	}
+	&__select-field {
+		display: flex;
+		gap: 10px;
+		align-items: center;
+		width: 100%;
+		justify-content: space-between;
+
+		&::after {
+			content: "";
+			flex-shrink: 0;
+			width: 8px;
+			height: 4px;
+			background: url("../../../public/images/icons/drop-down-arrow.svg");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			transition: all 0.3s;
+
+			.custom-select-active & {
+				transform: rotate(180deg);
+			}
+		}
+	}
+}
+.custom-select-hidden {
+	visibility: hidden;
+	position: absolute;
+	z-index: -1000;
+	pointer-events: none;
+	opacity: 0;
+}

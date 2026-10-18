@@ -1,0 +1,17 @@
+@use "@/scss/tools" as *;
+
+.mission {
+	background: var(--gradient);
+	padding-block: calc(var(--section-padding) * 2);
+	margin-block: var(--section-padding);
+	
+	&__container {
+		text-align: center;
+
+		strong {
+			font-size: adapt(26, 18);
+			font-weight: 400;
+			color: var(--color-accent-dark);
+		}
+	}
+}

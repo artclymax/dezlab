@@ -1,0 +1,149 @@
+@use "@/scss/tools" as *;
+
+.footer {
+	padding-bottom: 40px;
+	&__top {
+		margin-top: adapt(120, 60);
+		border-top: 1px solid var(--color-bd);
+	}
+
+	&__container-top {
+		display: flex;
+		flex-wrap: wrap;
+		gap: adapt(30, 24);
+		align-items: flex-start;
+
+		@include media($mobile-sm, min) {
+			& > *:not(:first-child) {
+				padding-top: 20px !important;
+			}
+		}
+		@include media($mobile-sm) {
+			padding-top: 24px;
+			& > * {
+				flex: 1 1 100% !important;
+			}
+		}
+	}
+
+	&__info {
+		flex: 0 1 340px;
+	}
+
+	&__logo {
+		height: 50px;
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__descr {
+		@include media($mobile-sm, min) {
+			&:not(:last-child) {
+				margin-bottom: 34px;
+			}
+		}
+	}
+
+	&__nav {
+		flex: 0 1 180px;
+	}
+
+	&__title {
+		@include reset;
+		font-weight: 400;
+		font-size: rem(18);
+		&:not(:last-child) {
+			margin-bottom: adapt(20, 12);
+		}
+	}
+
+	&__contacts {
+		flex: 0 1 260px;
+	}
+	&__social-list {
+	}
+	&__phones-list {
+		&:not(:last-child) {
+			margin-bottom: adapt(20, 12);
+		}
+	}
+	&__email-list {
+		&:not(:last-child) {
+			margin-bottom: adapt(20, 12);
+		}
+	}
+
+	&__address {
+		@include reset;
+		font-style: normal;
+		flex: 0 1 300px;
+		--i-gap: 10px;
+		--width: 26px;
+	}
+
+	&__bottom {
+		margin-top: adapt(40, 24);
+		border-top: 1px solid var(--color-bd);
+		padding-top: adapt(28, 24);
+
+		font-weight: 200;
+		font-size: 1rem;
+	}
+
+	&__container-bottom {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		align-items: center;
+	}
+
+	&__copy {
+		font-size: inherit;
+	}
+
+	&__links {
+		@include reset;
+		list-style-type: none;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		align-items: center;
+	}
+
+	&__links-item {
+	}
+
+	&__link {
+	}
+}
+
+.footer-menu {
+	ul {
+		@include reset;
+		list-style-type: none;
+		font-weight: 300;
+		display: flex;
+		flex-direction: column-reverse;
+		gap: adapt(20, 12);
+	}
+	a {
+		display: inline-flex;
+		text-decoration: none;
+		color: inherit;
+		transition: all 0.3s;
+
+		@include hoverLine;
+
+		@include hover {
+			color: var(--color-accent);
+		}
+	}
+}
+.title-4 {
+}
+.icon {
+}
+.icon--address {
+}

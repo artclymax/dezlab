@@ -1,0 +1,75 @@
+<?php
+$params = [
+	'slidesPerView' => 1,
+	'spaceBetween' => 20,
+	'loop' => true,
+	'breakpoints' => [
+		'1024' => [
+			'slidesPerView' => 3,
+		],
+		'576' => [
+			'slidesPerView' => 2,
+		],
+	]
+];
+
+$json = json_encode($params);
+
+?>
+
+<?php if (have_posts()): ?>
+	<section class="reviews section">
+		<div class="container reviews__container">
+			<div class="swiper reviews-swiper" data-swiper='<?php echo $json ?>'>
+				<div class="swiper-wrapper reviews-swiper__wrapper">
+					<?php while (have_posts()):
+						the_post(); ?>
+						<div class="swiper-slide review-slide">
+							<div class="review-slide__wrapper">
+								<div class="review-slide__content icon icon--review">
+									<div class="review-slide__descr descr-box">
+										<?php the_content(); ?>
+									</div>
+								</div>
+								<div class="review-slide__author">
+									<h3 class="review-slide__name">
+										<?php the_field('author_name'); ?>
+									</h3>
+									<div class="review-slide__date">
+										<?php the_field('author_date') ?>
+									</div>
+									<div class="review-slide__position">
+										<?php the_field('author_position') ?>
+									</div>
+									<div class="review-slide__company">
+										<?php the_field('author_company') ?>
+									</div>
+								</div>
+							</div>
+						</div>
+					<?php endwhile; ?>
+				</div>
+				<div class="reviews-swiper__navigation">
+					<button class="swiper-btn swiper-btn__prev reviews-swiper__btn reviews-swiper__btn-prev" type="button"
+						data-swiper-btn-prev>
+						<svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M8.56055 15.1465C8.75581 15.3417 8.75581 15.6583 8.56055 15.8535C8.36528 16.0487 8.04876 16.0488 7.85351 15.8535L-3.49691e-07 8L7.85352 0.146484C8.04878 -0.048778 8.36528 -0.0487775 8.56055 0.146484C8.75581 0.341746 8.75581 0.658253 8.56055 0.853515L1.41406 8L8.56055 15.1465ZM17.5605 15.1465C17.7558 15.3417 17.7558 15.6583 17.5605 15.8535C17.3653 16.0487 17.0488 16.0488 16.8535 15.8535L9 8L16.8535 0.146484C17.0488 -0.0487778 17.3653 -0.0487778 17.5605 0.146484C17.7558 0.341747 17.7558 0.658253 17.5605 0.853516L10.4141 8L17.5605 15.1465Z"
+								fill="currentColor" />
+						</svg>
+					</button>
+					<button class="swiper-btn swiper-btn__next reviews-swiper__btn reviews-swiper__btn-next" type="button"
+						data-swiper-btn-next>
+						<svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M9.14649 0.853516C8.95122 0.658253 8.95122 0.341748 9.14649 0.146485C9.34175 -0.04874 9.65827 -0.0487648 9.85352 0.146485L17.707 8L9.85352 15.8535C9.65825 16.0488 9.34175 16.0488 9.14648 15.8535C8.95122 15.6583 8.95122 15.3417 9.14648 15.1465L16.293 8L9.14649 0.853516ZM0.146485 0.853516C-0.0487769 0.658253 -0.0487768 0.341747 0.146485 0.146484C0.34175 -0.0487404 0.658267 -0.0487652 0.853516 0.146484L8.70703 8L0.853516 15.8535C0.658253 16.0488 0.341747 16.0488 0.146484 15.8535C-0.0487778 15.6583 -0.0487778 15.3417 0.146484 15.1465L7.29297 8L0.146485 0.853516Z"
+								fill="currentColor" />
+						</svg>
+					</button>
+				</div>
+			</div>
+
+			</ul>
+		</div>
+	</section>
+<?php endif; ?>

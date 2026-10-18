@@ -1,0 +1,147 @@
+@use "tools/constants" as *;
+@use "tools/functions" as *;
+@use "tools/mixins" as *;
+
+@use "base/normalize";
+////@use "../../node_modules/ion-rangeslider/css/ion.rangeSlider.min.css";
+////@use "../../node_modules/@fancyapps/ui/dist/fancybox/fancybox.css";
+////@use "base/fonts";
+@use "base/vars";
+@use "base/resets";
+@use "base/global";
+@use "base/utils";
+////@use "base/_components.scss";
+
+@use "components/_btn.scss";
+@use "components/_icon.scss";
+@use "components/_typography.scss";
+@use "components/_grid.scss";
+@use "components/_header-menu.scss";
+@use "components/_form.scss";
+@use "components/_custom-select.scss";
+//@use "components/_cf-select.scss";
+//@use "components/_running-line.scss";
+//@use "components/_scroll-to-top.scss";
+@use "components/_modal.scss";
+@use "components/_cookie-banner.scss";
+@use "components/_navxt_breadcrumbs.scss";
+//@use "components/_wp-block.scss";
+@use "components/_pagination.scss";
+//@use "components/_hero-404.scss";
+//@use "components/_table.scss";
+//@use "components/_footer-menu.scss";
+//@use "components/_form-input.scss";
+//@use "components/_phone-box.scss";
+//@use "components/_swiper-components.scss";
+
+@use "sections/_phone-list.scss";
+@use "sections/_social-list.scss";
+@use "sections/_label.scss";
+
+// SECTIONS
+@use "sections/_header.scss";
+@use "sections/_footer.scss";
+
+@use "sections/_hero.scss";
+@use "sections/_benefits.scss";
+@use "sections/_featured-section.scss";
+@use "sections/_news.scss";
+@use "sections/_form-section.scss";
+
+@use "sections/_hero-page.scss";
+
+@use "sections/_history.scss";
+@use "sections/_about-cards.scss";
+@use "sections/_mission.scss";
+@use "sections/_produce.scss";
+@use "sections/_faq.scss";
+@use "sections/_production.scss";
+
+@use "sections/_dez-product-card.scss";
+@use "sections/_dez-shop.scss";
+@use "sections/_dez-product-page.scss";
+
+@use "sections/_certificates-archive.scss";
+
+@use "sections/_block.scss";
+
+@use "sections/_reviews-benefits.scss";
+@use "sections/_reviews.scss";
+
+@use "sections/_contacts-section.scss";
+@use "sections/_map-section.scss";
+
+@use "sections/_hero-404.scss";
+
+//figure.wp-block-gallery-is-layout-flex {
+//	gap: 10px !important;
+//	& > * {
+//		flex: 1;
+//	}
+//	@include media($mobile-sm) {
+//		flex-direction: column;
+//		& > * {
+//			flex: 1 1 100%;
+//			width: 100% !important;
+//		}
+//	}
+//}
+//.wp-block-image {
+//	img {
+//		width: 100%;
+//	}
+//}
+.dez-product-card__image,
+.dez-product-gallery__image,
+.dez-product-gallery-slide__wrapper-link {
+	--object-fit: contain;
+}
+.header {
+	z-index: 55;
+}
+@media (max-width: 768px) {
+	.hero-slide,
+	.hero-slide__wrapper {
+		display: flex;
+		flex-direction: column;
+		min-height: 620px;
+	}
+	.hero-slide__content {
+		flex: 1 0 auto;
+	}
+	.hero-slide__btn-box {
+		margin-top: auto;
+	}
+}
+.hero-404__input {
+	pointer-events: none;
+}
+@media (max-width: 1025px) {
+	.header__top .header__btn {
+		display: none;
+	}
+	.burger-btn {
+		margin-left: auto;
+	}
+}
+@media (max-width: 768px) {
+	.header__top .phones-list__link {
+		font-size: 12px;
+	}
+	.header__top .phones-list__link-icon {
+		width: 24px;
+	}
+	.header__top {
+		padding: 6px 0;
+	}
+	.header__top .icon {
+		--width: 24px;
+	}
+	.header__top .header__phones-list {
+		gap: 10px;
+		flex-wrap: wrap;
+	}
+}
+.form-section__container {
+	align-items: flex-end;
+}

@@ -1,0 +1,102 @@
+@use "@/scss/tools" as *;
+
+.header {
+	position: relative;
+	z-index: 2;
+	background: var(--color-white);
+	
+	&__top {
+		padding-top: 9px;
+	}
+
+	&__top-container {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		width: 100%;
+		gap: 34px;
+	}
+
+	&__phones-list {
+		flex-direction: row;
+		gap: adapt(47, 24);
+
+		.phones-list__item {
+			--width: 26px;
+			--i-gap: 6px;
+		}
+
+		.phones-list__link {
+			font-size: 24px;
+			font-weight: 500;
+		}
+	}
+
+	&__btn {
+	}
+
+	&__middle {
+		background: var(--color-light);
+		@include media($tablet, min) {
+			border-bottom: 1px solid var(--color-gray-2);
+			padding-bottom: 20px;
+			background: var(--color-white);
+		}
+	}
+
+	&__middle-container {
+		display: flex;
+		align-items: flex-end;
+		gap: 24px;
+	}
+
+	&__logo {
+	}
+
+	&__menu {
+	}
+
+	&__phone-btn {
+		@include media($tablet) {
+			margin-left: auto;
+		}
+	}
+
+	&__burger-btn {
+	}
+
+	&__bottom {
+		padding-block: adapt(16, 8, $tablet);
+		box-shadow: 0 4px 4px 0 rgba(61, 155, 255, 0.2);
+		@include media($mobile-sm) {
+			padding-block: 24px;
+		}
+	}
+
+	&__bottom-container {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		gap: 40px;
+
+		@include media($mobile-sm) {
+			flex-wrap: wrap;
+			gap: 24px;
+			text-align: center;
+		}
+	}
+
+	&__news-title {
+		@include reset;
+		font-family: var(--font-family-title);
+		font-size: adapt(26, 18);
+		font-weight: 400;
+
+		@include media($mobile-sm) {
+			
+		}
+	}
+
+	&__news-btn {
+	}
+}

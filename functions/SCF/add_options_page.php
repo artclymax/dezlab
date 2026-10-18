@@ -1,0 +1,12 @@
+<?php
+// ACF - вкладки
+//add_action('init', function () {
+//	if (function_exists('acf_add_options_page')) {
+//		acf_add_options_page([
+//			'page_title' => 'Общие секции',
+//			'menu_title' => 'Общие секции',
+//			'menu_slug' => 'theme_settings',
+//		]);
+//	}
+//});
+

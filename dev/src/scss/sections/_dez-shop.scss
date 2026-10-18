@@ -1,0 +1,188 @@
+@use "@/scss/tools" as *;
+
+.dez-shop {
+	margin-top: var(--section-padding);
+
+	&__header {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: adapt(60, 12);
+		&:not(:last-child) {
+			margin-bottom: adapt(40, 60);
+		}
+
+		@include media($mobile-sm) {
+			flex-direction: column;
+		}
+	}
+
+	&__category {
+		position: relative;
+		//overflow: hidden;
+		max-width: 245px;
+		width: 100%;
+		font-weight: 200;
+		font-size: 1rem;
+
+		@include media($mobile-sm) {
+			max-width: 100%;
+		}
+	}
+
+	&__category-btn {
+		padding: 12px adapt(14, 10);
+		border: none;
+		width: 100%;
+		border-radius: 12px;
+		transition: all 0.3s;
+		background: var(--color-accent-light);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+		svg {
+			transition: all 0.3s;
+		}
+		.active & {
+			color: var(--color-light);
+			background: var(--color-accent);
+			border-radius: 12px 12px 0 0;
+
+			svg:last-child {
+				transform: rotate(180deg);
+			}
+		}
+
+		@include media($mobile-sm) {
+			font-weight: 600;
+			padding-inline: 30px;
+		}
+	}
+
+	&__order {
+		max-width: 245px;
+		width: 100%;
+		font-weight: 200;
+		font-size: 1rem;
+		@include media($mobile-sm) {
+			max-width: 100%;
+		}
+		.custom-select {
+			&.custom-select-active {
+				.custom-select__select-field {
+					color: var(--color-light);
+					background: var(--color-accent);
+					border-radius: 12px 12px 0 0;
+
+					&::after {
+						background: url("../../../public/images/icons/drop-down-arrow--light.svg");
+					}
+				}
+			}
+			&__select-field {
+				padding: 12px adapt(14, 10);
+				border: none;
+				width: 100%;
+				border-radius: 12px;
+				transition: all 0.3s;
+				background: var(--color-accent-light);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 42px;
+
+				&::after {
+					width: 10px;
+					height: 4px;
+				}
+				@include media($mobile-sm) {
+					font-weight: 600;
+					padding-inline: 30px;
+					gap: 90px;
+				}
+			}
+
+			&__list {
+				height: max-content;
+				border-radius: 0 0 12px 12px;
+			}
+
+			&__item {
+			}
+
+			&__btn {
+				padding: 0 adapt(14, 10) 12px;
+				background: var(--color-accent);
+				color: var(--color-light);
+				width: 100%;
+				border: none;
+				text-align: left;
+
+				@include media($mobile-sm) {
+					padding-inline: 30px;
+				}
+			}
+		}
+		.active {
+		}
+	}
+
+	&__not-found-title {
+	}
+
+	&__not-found-btn {
+	}
+
+	.woocommerce-pagination {
+		display: flex;
+		justify-content: center;
+		margin-top: adapt(40, 24);
+	}
+}
+.product-categories {
+	@include reset;
+	list-style-type: none;
+	padding: 0 adapt(14, 10) 12px;
+	display: flex;
+	gap: 12px;
+	flex-direction: column;
+	background: var(--color-accent);
+	color: var(--color-light);
+	position: absolute;
+	bottom: 2px;
+	left: 0;
+	width: 100%;
+	border-radius: 0 0 12px 12px;
+	transform: translateY(10px);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition: all 0.3s;
+
+	@include media($mobile-sm) {
+		padding-inline: 30px;
+	}
+	.active & {
+		z-index: 3;
+		transform: translateY(100%);
+		opacity: 1;
+		visibility: visible;
+		pointer-events: all;
+	}
+	li {
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+		transition: all 0.3s;
+
+		@include hover {
+			opacity: 0.7;
+		}
+	}
+
+	.active-category {
+	}
+}

@@ -1,0 +1,200 @@
+@use "@/scss/tools" as *;
+@use "@/scss/components/btn" as *;
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100dvh;
+	z-index: 1000;
+	background: rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(50px);
+	display: flex;
+	//justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 5px;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.35s ease;
+	overflow: auto;
+
+	.admin-bar & {
+		//top: var(--wp-admin-bar-height);
+		padding-top: calc(var(--wp-admin--admin-bar--height) + 5px);
+		//margin-top: calc(var(--wp-admin--admin-bar--height));
+	}
+	&.active-modal {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	&__box {
+		padding: 20px 10px;
+		//overflow: auto;
+		//border-radius: 12px;
+		margin: 10px;
+
+		transform: scale(0.8);
+		opacity: 0;
+
+		transition:
+			transform 0.35s cubic-bezier(0.17, 0.67, 0.55, 1.39),
+			opacity 0.3s ease;
+
+		.modal.active-modal & {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	&__close-btn {
+	}
+}
+.modal-close-btn {
+	@include reset;
+	background: transparent;
+	border: none;
+	padding: adapt(12, 8);
+	position: absolute;
+	top: 24px;
+	right: 20px;
+	@include square(adapt(45, 35));
+	background: var(--color-light);
+	border-radius: 50%;
+	color: var(--color-accent);
+	border: 2px solid currentColor;
+
+	transition: all 0.3s;
+	svg {
+		width: 100%;
+		height: 100%;
+		transition: all 0.3s;
+	}
+
+	@include hover {
+		color: var(--color-accent-dark);
+		svg {
+			transform: rotate(90deg);
+		}
+	}
+}
+.modal {
+	&__box {
+		max-width: 600px;
+		width: 100%;
+		padding: 56px adapt(56, 10) adapt(38, 24);
+	}
+}
+
+.modal-call {
+	color: var(--color-white);
+
+	&__title {
+		margin-bottom: 20px;
+		//padding-right: 20px; // для кнопки
+	}
+	&__descr-box {
+		margin-bottom: adapt(44, 24);
+		font-size: 16px;
+	}
+	&__form {
+		.form-section__wrapper .form-input {
+			flex: 1 1 100%;
+		}
+	}
+}
+
+.modal {
+	&__box {
+	}
+
+	&__close-btn {
+	}
+}
+.modal-news {
+	&__close-btn {
+		z-index: 3;
+	}
+	&__box {
+		padding: unset;
+	}
+	&__body {
+		background: var(--color-light);
+		border-radius: 20px;
+		overflow: hidden;
+	}
+
+	&__image {
+		position: relative;
+		padding-bottom: 133%;
+	}
+
+	&__content {
+		padding: 12px 20px adapt(40, 20);
+	}
+
+	&__navigation {
+		display: flex;
+		justify-content: center;
+		gap: 16px;
+		align-items: center;
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__date {
+		--width: 24px;
+		--i-gap: 16px;
+		&::before {
+			margin-top: -4px;
+		}
+		&:not(:last-child) {
+			margin-bottom: adapt(40, 24);
+		}
+	}
+
+	&__title {
+		font-size: adapt(26, 18);
+		font-weight: 400;
+		text-wrap: balance;
+
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__descr-box {
+	}
+}
+
+.modal-call {
+	&__box {
+		padding: unset;
+	}
+
+	&__close-btn {
+	}
+
+	&__body {
+		background: var(--color-light);
+		border-radius: 20px;
+		overflow: hidden;
+		padding: adapt(40, 60) adapt(20, 10) 20px;
+	}
+
+	&__title {
+		text-align: center;
+	}
+
+	&__descr-box {
+		text-align: center;
+		max-width: 500px;
+		margin: 0 auto;
+	}
+
+	&__form {
+	}
+}

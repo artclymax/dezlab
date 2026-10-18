@@ -1,0 +1,27 @@
+@use "@/scss/tools" as *;
+
+.swiper-btn {
+	@include reset;
+	background: transparent;
+	border: none;
+	color: var(--color-accent);
+	width: 45px;
+	height: 45px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	transition: all 0.3s;
+
+	&__prev {
+		@include hover {
+			transform: translateX(-8px);
+		}
+	}
+
+	&__next {
+		@include hover {
+			transform: translateX(8px);
+		}
+	}
+}

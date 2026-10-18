@@ -1,0 +1,111 @@
+@use "@/scss/tools" as *;
+@use "@/scss/components/typography" as *;
+
+.contacts-section {
+	&__container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+
+	&__content {
+		flex: 0 1 40%;
+	}
+
+	&__title {
+		flex: 1 1 100%;
+	}
+
+	&__box {
+	}
+
+	&__messangers {
+	}
+
+	&__form-wrapper {
+		flex: 1;
+		.dez-product-content-form__title {
+			@extend .title-3;
+		}
+		.dez-product-content-form__text {
+			@include reset;
+			margin-bottom: 24px;
+		}
+	}
+}
+
+.contact-box {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+	border-radius: 20px;
+	padding: adapt(40, 10) adapt(40, 12);
+	background: var(--color-accent-light-2);
+	&:not(:last-child) {
+		margin-bottom: adapt(40, 24);
+	}
+	@include media($mobile) {
+		border-radius: 12px;
+	}
+	&__title {
+	}
+
+	&__content {
+		--i-gap: 20px;
+		.phones-list__item {
+			--i-gap: 20px;
+		}
+		.email-list {
+			.phones-list__item {
+				--width: 32px;
+			}
+		}
+		.icon--address {
+			--i-gap: 20px;
+		}
+	}
+
+	&__descr {
+		flex: 0 1 300px;
+		min-width: adapt(300, 270);
+		font-style: normal;
+	}
+	&__text {
+		font-size: inherit;
+		color: var(--color-accent);
+	}
+}
+
+.messangers {
+	@include reset;
+	list-style-type: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: adapt(20, 6);
+
+	&__item {
+	}
+
+	&__link {
+		display: inline-flex;
+		transition: all 0.3s;
+		@include square(adapt(44, 36));
+
+		@include hover {
+			opacity: 0.7;
+		}
+	}
+}
+
+.contacts-page {
+	.dez-product-form__title {
+		@extend .title-3;
+	}
+	.dez-product-content-form__text {
+		@include reset;
+		margin-bottom: 12px;
+		text-align: center;
+		font-size: rem(15.5);
+	}
+}

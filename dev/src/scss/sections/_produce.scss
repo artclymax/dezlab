@@ -1,0 +1,36 @@
+@use "@/scss/tools" as *;
+
+.produce {
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		gap: adapt(24, 12);
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__content {
+	}
+
+	&__title {
+		text-align: center;
+		grid-column: 1 / -1;
+		margin-bottom: adapt(20, 12);
+	}
+
+	&__descr-box {
+		&:not(:last-child) {
+			margin-bottom: adapt(28, 12);
+		}
+	}
+
+	&__btn {
+	}
+
+	&__image-box {
+		height: adapt(480, 340);
+	}
+}

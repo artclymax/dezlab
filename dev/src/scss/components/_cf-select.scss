@@ -1,0 +1,109 @@
+@use "@/scss/tools" as *;
+@use "@/scss/components/form" as *;
+
+.cf-select-custom {
+	flex-shrink: 0;
+	color: var(--color-dark);
+	max-width: 200px;
+	position: relative;
+	z-index: 2;
+	@include break-word;
+
+	.jobs-form &,
+	.services-cta &,
+	.record & {
+		max-width: 100%;
+	}
+	.jobs-form &,
+	.services-cta &,
+	.jobs-form & {
+		color: var(--color-dark);
+	}
+
+	&::after {
+		content: "";
+		color: var(--color-gray);
+		position: absolute;
+		height: 12px;
+		width: 24px;
+		right: 4px;
+		line-height: 1;
+		top: 50%;
+		transform: translateY(-50%);
+		pointer-events: none;
+		padding-left: 6px;
+		background-color: var(--color-light);
+
+		background-image: url("../../../public/images/icons/arrow-down.svg");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		.record & {
+			background-color: transparent;
+			background-image: url("../../../public/images/icons/arrow-down--white.svg");
+			right: adapt(20, 4);
+		}
+		.services-cta &,
+		.jobs-form & {
+			background-color: transparent;
+			right: adapt(20, 4);
+		}
+	}
+
+	&__field {
+		width: 100%;
+
+		@extend .form-input;
+
+		.hero-form & {
+			@extend .hero-input;
+		}
+		padding-right: 30px;
+		.services-cta &,
+		.jobs-form & {
+			border-color: var(--color-dark) !important;
+			color: var(--color-dark) !important;
+		}
+	}
+
+	&__list {
+		@include reset;
+		list-style-type: none;
+		position: absolute;
+		z-index: 6;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		max-height: 200px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		transform: translateY(100%);
+		display: none;
+		border: 2px solid var(--color-blue);
+		border-radius: 12px;
+		background: var(--color-white);
+		.record & {
+			border-color: var(--color-light);
+		}
+		.services-cta &,
+		.jobs-form & {
+			border-color: var(--color-dark) !important;
+			color: var(--color-dark) !important;
+		}
+		.active & {
+			display: block;
+		}
+	}
+
+	&__btn {
+		text-align: left;
+		border: 1px solid var(--color-gray-2);
+		background: var(--color-light);
+		padding: 6px 12px;
+		width: 100%;
+
+		&.active {
+			background: #cecece;
+		}
+	}
+}

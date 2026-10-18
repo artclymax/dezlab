@@ -1,0 +1,93 @@
+@use "@/scss/tools" as *;
+
+.production {
+	&__container {
+	}
+
+	&__title {
+		text-align: center;
+	}
+
+	&__descr-box {
+		max-width: 900px;
+		margin: 0 auto;
+		text-align: center;
+		&:not(:last-child) {
+			margin-bottom: adapt(40, 24);
+		}
+	}
+}
+
+.production-swiper {
+	&__wrapper {
+	}
+
+	&__pagination {
+		gap: 20px;
+		--swiper-pagination-bullet-height: 12px;
+		--swiper-pagination-bullet-width: 12px;
+
+		margin-top: adapt(40, 12);
+	}
+
+	&__navigation {
+	}
+}
+
+.production-slide {
+	&__wrapper-link {
+		display: inline-flex;
+		width: 100%;
+		height: adapt(270, 236);
+		border-radius: adapt(20, 12);
+		overflow: hidden;
+		--object-pos: center;
+
+		.certificates-section & {
+			height: adapt(540, 475);
+			border-radius: 0;
+		}
+
+		img {
+			transition: all 0.3s;
+		}
+		@include hover {
+			img {
+				transform: scale(1.05);
+			}
+		}
+	}
+}
+.production-swiper-wrapper {
+	position: relative;
+}
+.production-swiper-btn {
+	&__prev,
+	&__next {
+		position: absolute;
+		top: 35%;
+		z-index: 2;
+		.certificates-section & {
+			top: 45%;
+			color: var(--color-dark);
+
+		}
+		@include hover {
+			color: var(--color-accent-dark);
+		}
+
+		@include media($mobile) {
+			position: static;
+		}
+	}
+
+	&__prev {
+		transform: translateX(-55%);
+		left: 0;
+	}
+
+	&__next {
+		transform: translateX(55%);
+		right: 0;
+	}
+}

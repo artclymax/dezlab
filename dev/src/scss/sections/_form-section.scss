@@ -1,0 +1,75 @@
+@use "@/scss/tools" as *;
+
+.form-section {
+	background: var(--color-accent);
+	margin-top: var(--section-padding);
+	
+	&__container {
+		--container-padding: #{adapt(20, 10)};
+		--container-width: 1160px;
+		display: flex;
+		gap: adapt(40, 24, $mobile);
+		background: var(--color-light);
+		border-radius: 20px;
+		padding-top: 40px;
+
+		@include media($tablet) {
+			margin-inline: 10px;
+		}
+		@include media($mobile) {
+			padding-bottom: 20px;
+		}
+	}
+
+	&__form {
+		order: 2;
+		flex: 0 1 65%;
+
+		@include media($mobile) {
+			flex: 1 1 100%;
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+		@include media($mobile) {
+			text-align: center;
+		}
+	}
+
+	&__descr-box {
+		max-width: 600px;
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+		@include media($mobile) {
+			text-align: center;
+		}
+	}
+
+	&__image {
+		flex: 0 1 45%;
+		height: 100%;
+		min-height: 560px;
+		--object-fit: contain;
+		--object-pos: bottom;
+
+		@include media($mobile) {
+			display: none;
+		}
+	}
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: adapt(20, 12);
+		justify-content: flex-start;
+		
+		.btn {
+			width: 100%;
+			//text-wrap: ;
+		}
+	}
+}

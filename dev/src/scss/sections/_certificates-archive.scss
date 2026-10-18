@@ -1,0 +1,39 @@
+@use "@/scss/tools" as *;
+
+.certificates-archive {
+	margin-top: var(--section-padding);
+
+	&__list {
+		row-gap: adapt(40, 12);
+	}
+
+	&__item {
+	}
+
+	&__link-wrapper {
+		display: flex;
+		width: 100%;
+		padding-bottom: 130%;
+		border-radius: 20px;
+		overflow: hidden;
+
+		img {
+			transition: all 0.3s;
+		}
+
+		@include hover {
+			img {
+				transform: scale(1.05);
+			}
+		}
+
+		@include media($mobile-sm) {
+			border-radius: 12px;
+		}
+	}
+	.pagination-page {
+		display: flex;
+		justify-content: center;
+		margin-top: 24px;
+	}
+}

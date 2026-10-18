@@ -1,0 +1,244 @@
+@use "@/scss/tools" as *;
+@use "@/scss/components/btn" as *;
+
+.form-input {
+}
+
+.form-btn {
+}
+/*
+.form-checkbox {
+	display: flex;
+	//align-items: center;
+	gap: 10px;
+	&__input {
+		display: none;
+
+		&:checked ~ .form-checkbox__checkbox {
+			&::before {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__checkbox {
+		flex-shrink: 0;
+		display: flex;
+		width: 28px;
+		height: 28px;
+		border: 1px solid var(--color-dark);
+		background-color: var(--color-light);
+		position: relative;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			//background-color: var(--color-accent);
+			background-image: url("../../../public/images/icons/check.svg");
+			background-position: center center;
+			background-size: 100%;
+			background-repeat: no-repeat;
+			transition: all 0.3s;
+			opacity: 0;
+		}
+	}
+
+	&__text {
+		line-height: 1;
+		padding-top: 0.1em;
+		font-size: rem(16);
+		font-weight: 200;
+
+		a {
+			text-decoration: none;
+			color: inherit;
+			transition: all 0.3s;
+			@include hover {
+				color: var(--color-accent);
+			}
+		}
+	}
+}
+*/
+.form-field {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+	&__text {
+		font-size: adapt(16, 14);
+	}
+
+	&__input {
+		border: 1px solid var(--color-dark);
+		background: transparent;
+		padding: 16px 10px;
+		border-radius: 6px;
+		line-height: 1;
+		width: 100%;
+		font-size: adapt(16, 14);
+
+		&::placeholder {
+		}
+	}
+
+	&__textarea {
+		resize: none;
+		height: 80px;
+	}
+}
+.form-file-label {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+
+	@include media($mobile-sm) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	&__text {
+		flex: 1;
+	}
+
+	.form-file {
+		display: none;
+		opacity: 0;
+		position: absolute;
+		z-index: -1000;
+		pointer-events: none;
+	}
+	.btn--stroke {
+		color: var(--color-dark);
+		max-width: 200px;
+	}
+}
+
+.form-section__wrapper {
+	br {
+		display: none;
+	}
+}
+.wpcf7-form-control-wrap {
+	@include media($mobile) {
+		width: 100%;
+		flex: 1 1 100%;
+
+		input {
+			width: 100%;
+		}
+	}
+}
+/*
+// cf-7 file
+.wpcf7-form-control-wrap[data-name^="file"] {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex: 1;
+
+	@include media($mobile) {
+		width: 100%;
+		flex: 1 1 100%;
+	}
+
+	input {
+		display: none;
+	}
+	.file-label {
+		display: flex;
+		align-items: center;
+		flex: 1;
+		gap: 12px;
+		@include media($mobile) {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+	.file-label-btn {
+		@extend .btn;
+		@extend .btn--stroke;
+		max-width: 200px;
+		color: var(--color-dark);
+		@include hover {
+			color: var(--color-dark);
+		}
+	}
+	.file-text {
+		order: 2;
+	}
+}
+*/
+
+//cf-7 accept
+.wpcf7-form-control-wrap[data-name^="acceptance"] {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	.wpcf7-list-item {
+		margin: unset;
+	}
+	.wpcf7-list-item-label {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		width: 100%;
+		&::before,
+		&::after {
+			display: none;
+		}
+		.form-checkbox-icon {
+			display: flex;
+			width: 28px;
+			height: 28px;
+			border: 1px solid var(--color-dark);
+			border-radius: 2px;
+			background-color: var(--color-light);
+			position: relative;
+			flex-shrink: 0;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-image: url("../../../public/images/icons/check.svg");
+				background-position: center center;
+				background-size: 70%;
+				background-repeat: no-repeat;
+				transition: all 0.3s;
+				opacity: 0;
+			}
+		}
+		.form-checkbox-text {
+			font-weight: 200;
+			font-size: adapt(16, 14);
+		}
+		span {
+			padding-top: 0.1em;
+		}
+
+		a {
+			text-decoration: none;
+			color: inherit;
+			transition: all 0.3s;
+			@include hover {
+				color: var(--color-accent);
+			}
+		}
+	}
+	input {
+		display: none;
+	}
+	input:checked ~ .wpcf7-list-item-label {
+		.form-checkbox-icon::before {
+			opacity: 1;
+		}
+	}
+}

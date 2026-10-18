@@ -1,0 +1,70 @@
+@use "@/scss/tools" as *;
+
+.history {
+	padding-top: calc(var(--section-padding) * 2);
+
+	&__container {
+	}
+
+	&__label {
+		&:not(:last-child) {
+			margin-bottom: adapt(40, 24);
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: adapt(50, 12);
+		&:not(:last-child) {
+			margin-bottom: adapt(40, 24);
+		}
+	}
+
+	&__title {
+		flex: 1 1 auto;
+		color: var(--color-accent-dark);
+	}
+
+	&__descr-box {
+		flex: 0 1 700px;
+		@include media($laptop-sm) {
+			flex: 1 1 50%;
+		}
+		@include media($mobile) {
+			flex: 1 1 100%;
+		}
+	}
+}
+
+.history-gallery {
+	&__wrapper {
+	}
+
+	&__pagination {
+		margin-top: adapt(24, 12);
+	}
+}
+
+.history-slide {
+	width: adapt(387, 340) !important;
+	&__wrapper-link {
+		display: inline-flex;
+		width: 100%;
+		height: adapt(270, 236);
+		overflow: hidden;
+		border-radius: 20px;
+		@include media($mobile-sm) {
+			border-radius: 12px;
+		}
+		img {
+			transition: all 0.3s;
+		}
+		@include hover {
+			img {
+				transform: scale(1.05);
+			}
+		}
+	}
+}

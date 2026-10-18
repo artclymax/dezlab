@@ -1,0 +1,101 @@
+@use "@/scss/tools" as *;
+
+.reviews {
+	margin-bottom: var(--section-padding);
+	&__container {
+	}
+}
+
+.reviews-swiper {
+	margin-top: -80px;
+	&__wrapper {
+	}
+
+	&__navigation {
+		display: flex;
+		gap: 8px;
+		align-items: center;
+		justify-content: center;
+		margin-top: adapt(40, 30);
+	}
+
+	&__btn {
+		color: var(--color-dark);
+	}
+
+	&__btn-prev {
+	}
+
+	&__btn-next {
+	}
+}
+
+.review-slide {
+	&__wrapper {
+		position: relative;
+		padding-top: 80px;
+		&::after {
+			content: "";
+			position: absolute;
+			top: 30%;
+			left: 47%;
+			transform: translate(-50%, -50%);
+			width: 250px;
+			height: 60%;
+			filter: blur(25px);
+			background: linear-gradient(159deg, #fff 32.71%, #88c9f9 74.16%);
+			z-index: -1;
+		}
+	}
+
+	&__content {
+		--width: #{adapt(32, 16)};
+		--i-gap: #{adapt(40, 32)};
+		align-items: start;
+		width: 100%;
+		&::before {
+			margin-top: adapt(14, 7);
+			margin-left: adapt(12, 6);
+		}
+		&:not(:last-child) {
+			padding-bottom: adapt(20, 12);
+			border-bottom: 1px solid var(--color-accent);
+			margin-bottom: adapt(20, 12);
+		}
+	}
+
+	&__descr {
+		max-width: 290px;
+		color: var(--color-black);
+	}
+
+	&__author {
+		display: flex;
+		gap: adapt(12, 8);
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		font-weight: 200;
+		font-size: 1rem;
+		font-size: var(--color-gray-text);
+	}
+
+	&__name {
+		@include reset;
+		font-weight: 400;
+		font-size: var(--font-size);
+		color: var(--color-black);
+	}
+
+	&__date {
+	}
+
+	&__position {
+		flex: 0 1 100%;
+	}
+
+	&__company {
+		flex: 0 1 100%;
+		color: var(--color-accent-dark);
+	}
+}

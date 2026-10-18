@@ -1,0 +1,256 @@
+@use "@/scss/tools" as *;
+.logo {
+	flex-shrink: 0;
+	height: adapt(70, 50);
+	transition: all 0.3s;
+
+	@include hover {
+		opacity: 0.7;
+	}
+
+	a {
+		display: inline-flex;
+		height: 100%;
+	}
+}
+
+.btn {
+	text-decoration: none;
+	border: none;
+	background: transparent;
+	display: inline-flex;
+	padding: unset;
+	margin: unset;
+	white-space: normal; // для cf7
+
+	position: relative;
+	overflow: hidden;
+
+	border-radius: 6px;
+	border: 1px solid var(--color-accent);
+	padding: 16px 30px;
+	//max-width: 270px;
+	min-width: 200px;
+	//width: 100%;
+
+	background: var(--color-accent);
+
+	font-weight: 600;
+	font-size: 16px;
+	text-align: center;
+	color: var(--color-white);
+	line-height: 100%;
+
+	justify-content: center;
+	align-items: center;
+	transition: all 0.3s;
+
+	@include hover {
+		background: var(--color-accent-dark);
+	}
+
+	@include media($mobile-sm) {
+		max-width: 100%;
+		width: 100%;
+		text-align: center;
+	}
+
+	&--stroke {
+		border: 1px solid var(--color-accent);
+		background: transparent;
+		color: var(--color-dark);
+		@include hover {
+			color: var(--color-white);
+			border-color: var(--color-accent-dark);
+		}
+	}
+}
+
+.phone-btn {
+	@include reset;
+	background: transparent;
+	border: none;
+	@include square(45px);
+	padding: 2px;
+	flex-shrink: 0;
+	color: var(--color-accent);
+	transition: all 0.3s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.home & {
+		//color: var(--color-white);
+	}
+
+	@include media($tablet, min) {
+		display: none;
+	}
+	.open-contacts-box & {
+		transform: rotate(90deg);
+	}
+}
+.burger-btn {
+	@include reset;
+	border: none;
+	@include square(45px);
+	flex-shrink: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 6px;
+	position: relative;
+	background: var(--color-light);
+	z-index: 2;
+	@include media($tablet, min) {
+		display: none;
+	}
+	span {
+		position: relative;
+		z-index: 2;
+		.open-header-menu & {
+			//width: 0;
+		}
+	}
+	span,
+	&::before,
+	&::after {
+		width: 80%;
+		background: var(--color-accent);
+		height: 3px;
+		border-radius: 4px;
+		transition: all 0.3s;
+		.open-header-menu & {
+			//background: var(--color-dark-2);
+		}
+		.home & {
+			//background: var(--color-white);
+		}
+	}
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		z-index: 3;
+		top: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 80%;
+		.open-header-menu & {
+			//position: absolute;
+			//top: 50%;
+			//left: 50%;
+			//transform: translate(-50%) rotate(45deg);
+		}
+	}
+	&::after {
+		top: unset;
+		bottom: 10px;
+
+		width: 40%;
+		left: 5px;
+		transform: translateX(0);
+
+		.open-header-menu & {
+			//position: absolute;
+			//bottom: unset;
+			//top: 50%;
+			//left: 50%;
+			//transform: translate(-50%) rotate(-45deg);
+			left: unset;
+			right: 5px;
+		}
+	}
+}
+.link {
+	@include reset;
+	background: transparent;
+	border: none;
+	text-align: left;
+	display: inline-flex;
+	text-decoration: none;
+	color: inherit;
+	transition: all 0.3s;
+	font-family: inherit;
+	@include hoverLine(slide, var(--color-accent-dark), 2px);
+	@include hover {
+		color: var(--color-accent-dark);
+	}
+}
+.link-hover {
+	@include hoverLine(center, var(--color-accent), 3px);
+	@include hover {
+		color: var(--color-accent);
+	}
+
+	@include media($tablet) {
+		&::after {
+			display: none;
+		}
+		.footer-menu & {
+			&::after {
+				display: flex;
+			}
+		}
+	}
+}
+.swiper-btn {
+	background: transparent;
+	border: none;
+	//border: 1px solid var(--color-gray-light);
+	color: var(--color-accent);
+	border-radius: 4px;
+	@include square(40px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.3s;
+
+	svg {
+		transition: all 0.3s;
+	}
+
+	@include hover {
+		border-color: var(--color-accent-dark);
+	}
+
+	&__prev {
+		@include hover {
+			svg {
+				transform: translateX(-4px);
+			}
+		}
+	}
+
+	&__next {
+		@include hover {
+			svg {
+				transform: translateX(4px);
+			}
+		}
+	}
+}
+
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 12px;
+	--swiper-pagination-bullet-height: 8px;
+	--swiper-pagination-bullet-width: 8px;
+	--swiper-pagination-bullet-horizontal-gap: 0;
+	--swiper-pagination-color: var(--color-accent-dark);
+	--swiper-pagination-bullet-inactive-color: var(--color-accent);
+	--swiper-pagination-bullet-inactive-opacity: 1;
+
+	.swiper-pagination-bullet {
+		flex-shrink: 0;
+		transition: all 0.3s;
+
+		@include hover {
+			background: var(--color-accent-dark);
+		}
+	}
+}

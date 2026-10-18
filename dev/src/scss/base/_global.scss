@@ -1,0 +1,79 @@
+@use "../tools" as *;
+
+html {
+	box-sizing: border-box;
+	font-size: var(--font-size-html);
+	min-height: 100%;
+	scroll-behavior: smooth;
+	scrollbar-gutter: stable;
+
+	//@include custom-scroll(var(--color-gray), var(--color-accent));
+}
+
+body {
+	min-width: rem($finishBreakpoint); // ! сайт будет масштабироваться
+	min-height: 100dvh;
+	font-family: var(--font-family-main);
+	font-size: var(--font-size);
+	font-weight: 400;
+
+	color: var(--color-dark);
+	background: var(--color-light);
+	line-height: var(--line-height);
+
+	.open-header-menu &,
+	.open-phone-box &,
+	.open-phone-menu &,
+	.active-modal &,
+	.open-menu & {
+		overflow: hidden;
+	}
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	//overflow: hidden;
+	min-height: 100dvh;
+	position: relative;
+	& > main {
+		flex: 1 1 auto;
+	}
+}
+
+.container {
+	max-width: calc(var(--container-width) + (var(--container-padding) * 2));
+	padding-inline: var(--container-padding);
+	margin: 0 auto;
+	&--wide {
+		--container-width: 1360px;
+	}
+}
+
+.main {
+}
+
+.section {
+	padding-block: var(--section-padding);
+	position: relative;
+}
+.section-bg.image-box {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: var(--color-black);
+		opacity: 0.8;
+	}
+}

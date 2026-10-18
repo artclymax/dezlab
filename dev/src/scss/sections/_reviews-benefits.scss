@@ -1,0 +1,42 @@
+@use "@/scss/tools" as *;
+
+.reviews-benefits {
+	margin-top: var(--section-padding);
+
+	&__container {
+	}
+
+	&__list {
+		@include reset;
+		list-style-type: none;
+		@include flx(4, 20px, 180px, 0, 1);
+		justify-content: center;
+		max-width: 864px;
+		margin: 0 auto;
+		row-gap: 24px;
+	}
+
+	&__item {
+	}
+}
+
+.reviews-benefit-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: adapt(18, 8);
+	text-align: center;
+	position: relative;
+	z-index: 2;
+	&__number {
+		font-family: var(--font-family-main);
+		font-weight: 600;
+		font-size: adapt(51, 24);
+		line-height: 1;
+		color: var(--color-accent-dark);
+	}
+	&__text {
+		@include reset;
+		color: var(--color-black);
+	}
+}

@@ -1,0 +1,11 @@
+@use "@/scss/tools" as *;
+
+.wp-block-media-text {
+	gap: 24px;
+	&__content {
+		padding: unset !important;
+	}
+	&:not(:last-child) {
+		margin-bottom: adapt(56, 24);
+	}
+}

@@ -1,0 +1,49 @@
+@use "@/scss/tools" as *;
+// Typography
+.title-1,
+.title-2,
+.title-3,
+.title-4 {
+	@include reset;
+
+	font-family: var(--font-family-title);
+	font-weight: 500;
+	line-height: 120%;
+
+}
+
+.title-1 {
+	font-size: adapt(36, 24);
+}
+
+.title-2 {
+	font-size: adapt(44, 26);
+}
+
+.title-3 {
+	font-size: adapt(26, 18);
+	font-weight: 400;
+}
+
+.title-4 {
+	font-size: rem(20);
+	font-weight: 600;
+}
+
+.upcase {
+	text-transform: uppercase;
+}
+.hint {
+	color: var(--color-gray);
+}
+.t-center {
+	text-align: center;
+}
+
+.gray-mobile {
+	color: var(--color-gray-dark);
+	@include media($mobile-sm) {
+		font-size: 1rem;
+		font-weight: 400;
+	}
+}
